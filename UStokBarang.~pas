@@ -1,0 +1,116 @@
+unit UStokBarang;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DB, ADODB, ComCtrls, Grids, DBGrids, ExtCtrls,
+  QRCtrls, QuickRpt, Buttons, Mask, DBCtrls;
+
+type
+  TFStokBarang = class(TForm)
+    Panel1: TPanel;
+    GroupBox1: TGroupBox;
+    AdsStok: TADODataSet;
+    dsStok: TDataSource;
+    Edit1: TEdit;
+    Label2: TLabel;
+    GroupBox2: TGroupBox;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    Label1: TLabel;
+    GroupBox3: TGroupBox;
+    DBGrid1: TDBGrid;
+    QuickRep1: TQuickRep;
+    QRBand1: TQRBand;
+    QRLabel1: TQRLabel;
+    QRLabel2: TQRLabel;
+    QRLabel3: TQRLabel;
+    ColumnHeaderBand1: TQRBand;
+    DetailBand1: TQRBand;
+    QRLabel4: TQRLabel;
+    QRDBText1: TQRDBText;
+    QRDBText2: TQRDBText;
+    QRDBText3: TQRDBText;
+    QRLabel5: TQRLabel;
+    QRLabel6: TQRLabel;
+    BitBtn1: TBitBtn;
+    ADSQRBeli: TADODataSet;
+    DSQRBeli: TDataSource;
+    DBEdit1: TDBEdit;
+    ADSQRJual: TADODataSet;
+    DSQRJual: TDataSource;
+    DBEdit2: TDBEdit;
+    procedure Edit1Change(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure RadioButton1Click(Sender: TObject);
+    procedure RadioButton2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FStokBarang: TFStokBarang;
+
+implementation
+
+uses UMenu;
+
+{$R *.dfm}
+
+procedure TFStokBarang.Edit1Change(Sender: TObject);
+var
+  a,b:string;
+begin
+  b:='select * from qrstok where nama_barang like "%'+Edit1.Text+'%"';
+  a:='select * from qrstok where kd_barang like "%'+Edit1.Text+'%"';
+  if RadioButton1.Checked=True then
+  begin
+    AdsStok.Active:=False;
+    AdsStok.Connection:=FMenu.ADOConnection1;
+    AdsStok.CommandText:=a;
+    AdsStok.Active:=True;
+  end
+  else
+  if RadioButton2.Checked=True then
+  begin
+    AdsStok.Active:=False;
+    AdsStok.Connection:=FMenu.ADOConnection1;
+    AdsStok.CommandText:=b;
+    AdsStok.Active:=True;
+  end;
+ end;
+procedure TFStokBarang.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Action:=caFree;
+  FMenu.StokBarang1.Enabled:=True;
+end;
+
+procedure TFStokBarang.RadioButton1Click(Sender: TObject);
+begin
+  Edit1.Enabled:=True;
+  Edit1.SetFocus;
+end;
+
+procedure TFStokBarang.RadioButton2Click(Sender: TObject);
+begin
+  Edit1.Enabled:=True;
+  Edit1.SetFocus;
+end;
+
+procedure TFStokBarang.BitBtn1Click(Sender: TObject);
+begin
+  QuickRep1.Preview;
+end;
+
+procedure TFStokBarang.FormCreate(Sender: TObject);
+begin
+  QuickRep1.Visible:=False;
+end;
+
+end.

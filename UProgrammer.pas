@@ -1,0 +1,47 @@
+unit UProgrammer;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Buttons, jpeg;
+
+type
+  TFAboutProgrammer = class(TForm)
+    Panel2: TPanel;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    Panel1: TPanel;
+    Label9: TLabel;
+    Label16: TLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FAboutProgrammer: TFAboutProgrammer;
+
+implementation
+
+uses UMenu;
+
+{$R *.dfm}
+
+procedure TFAboutProgrammer.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Action:=caFree;
+  //FMenu.Programmer1.Enabled:=True;
+end;
+
+procedure TFAboutProgrammer.BitBtn1Click(Sender: TObject);
+begin
+  close;
+end;
+
+end.

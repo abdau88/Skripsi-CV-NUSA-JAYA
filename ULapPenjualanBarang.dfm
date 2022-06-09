@@ -1,0 +1,737 @@
+object FLapPenjualan: TFLapPenjualan
+  Left = 326
+  Top = 141
+  Width = 526
+  Height = 533
+  Caption = 'Laporan Penjualan'
+  Color = clSkyBlue
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  Scaled = False
+  Visible = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 510
+    Height = 41
+    Align = alTop
+    Caption = 'LAPORAN PENJUALAN BARANG'
+    Color = clGradientActiveCaption
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+  end
+  object GroupBox1: TGroupBox
+    Left = 0
+    Top = 41
+    Width = 510
+    Height = 54
+    Align = alClient
+    Color = clSkyBlue
+    ParentColor = False
+    TabOrder = 1
+    object SpeedButton1: TSpeedButton
+      Left = 312
+      Top = 16
+      Width = 23
+      Height = 22
+      Caption = 'Go'
+      OnClick = SpeedButton1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 363
+      Top = 12
+      Width = 84
+      Height = 31
+      Caption = 'Preview'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BitBtn2Click
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333300000000
+        0000333377777777777733330FFFFFFFFFF033337F3FFF3F3FF733330F000F0F
+        00F033337F777373773733330FFFFFFFFFF033337F3FF3FF3FF733330F00F00F
+        00F033337F773773773733330FFFFFFFFFF033337FF3333FF3F7333300FFFF00
+        F0F03333773FF377F7373330FB00F0F0FFF0333733773737F3F7330FB0BF0FB0
+        F0F0337337337337373730FBFBF0FB0FFFF037F333373373333730BFBF0FB0FF
+        FFF037F3337337333FF700FBFBFB0FFF000077F333337FF37777E0BFBFB000FF
+        0FF077FF3337773F7F37EE0BFB0BFB0F0F03777FF3733F737F73EEE0BFBF00FF
+        00337777FFFF77FF7733EEEE0000000003337777777777777333}
+      NumGlyphs = 2
+    end
+    object ComboBox1: TComboBox
+      Left = 24
+      Top = 16
+      Width = 145
+      Height = 21
+      ItemHeight = 13
+      TabOrder = 1
+      OnClick = ComboBox1Click
+      Items.Strings = (
+        'Kode Barang'
+        'Nama Barang'
+        'No Faktur')
+    end
+    object Edit1: TEdit
+      Left = 184
+      Top = 16
+      Width = 121
+      Height = 21
+      TabOrder = 2
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 0
+    Top = 95
+    Width = 510
+    Height = 400
+    Align = alBottom
+    Color = clSkyBlue
+    ParentColor = False
+    TabOrder = 2
+    object DBGrid2: TDBGrid
+      Left = 2
+      Top = 15
+      Width = 506
+      Height = 383
+      Align = alClient
+      DataSource = dsLapPenjualan
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'no_faktur'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'No Faktur'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'tgl_faktur'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'Tanggal'
+          Width = 81
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'kd_barang'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'Kd Barang'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nama_barang'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'Nama Barang'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'jumlah_item'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'Jumlah Beli'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'total_harga'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          Title.Alignment = taCenter
+          Title.Caption = 'Total Harga'
+          Width = 93
+          Visible = True
+        end>
+    end
+    object QuickRep1: TQuickRep
+      Left = -59
+      Top = 48
+      Width = 816
+      Height = 1056
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      DataSet = AdsLapPenjualan
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = []
+      Functions.Strings = (
+        'PAGENUMBER'
+        'COLUMNNUMBER'
+        'REPORTTITLE')
+      Functions.DATA = (
+        '0'
+        '0'
+        #39#39)
+      Options = [FirstPageHeader, LastPageFooter]
+      Page.Columns = 1
+      Page.Orientation = poPortrait
+      Page.PaperSize = Letter
+      Page.Values = (
+        127.000000000000000000
+        2794.000000000000000000
+        127.000000000000000000
+        2159.000000000000000000
+        127.000000000000000000
+        127.000000000000000000
+        0.000000000000000000)
+      PrinterSettings.Copies = 1
+      PrinterSettings.Duplex = False
+      PrinterSettings.FirstPage = 0
+      PrinterSettings.LastPage = 0
+      PrinterSettings.OutputBin = Auto
+      PrintIfEmpty = True
+      SnapToGrid = True
+      Units = Inches
+      Zoom = 100
+      object QRBand1: TQRBand
+        Left = 48
+        Top = 48
+        Width = 720
+        Height = 129
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        AlignToBottom = False
+        Color = clMedGray
+        ForceNewColumn = False
+        ForceNewPage = False
+        Size.Values = (
+          341.312500000000000000
+          1905.000000000000000000)
+        BandType = rbTitle
+        object QRLabel1: TQRLabel
+          Left = 200
+          Top = 20
+          Width = 296
+          Height = 31
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            82.020833333333340000
+            529.166666666666700000
+            52.916666666666660000
+            783.166666666666800000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'LAPORAN PENJUALAN BARANG'
+          Color = clMedGray
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          FontSize = 16
+        end
+        object QRLabel2: TQRLabel
+          Left = 300
+          Top = 50
+          Width = 147
+          Height = 31
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            82.020833333333340000
+            793.750000000000000000
+            132.291666666666700000
+            388.937500000000000000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'CV. NUSA JAYA'
+          Color = clMedGray
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          FontSize = 16
+        end
+        object QRLabel9: TQRLabel
+          Left = 160
+          Top = 80
+          Width = 419
+          Height = 31
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            82.020833333333340000
+            423.333333333333300000
+            211.666666666666700000
+            1108.604166666667000000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'K e b o n d a l e m   P l a z a   B l o k  C / V'
+          Color = clMedGray
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          Transparent = False
+          WordWrap = True
+          FontSize = 16
+        end
+      end
+      object QRGroup1: TQRGroup
+        Left = 48
+        Top = 177
+        Width = 720
+        Height = 50
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        AlignToBottom = False
+        Color = clSilver
+        ForceNewColumn = False
+        ForceNewPage = False
+        Size.Values = (
+          132.291666666666700000
+          1905.000000000000000000)
+        Master = QuickRep1
+        ReprintOnNewPage = False
+        object QRLabel3: TQRLabel
+          Left = 20
+          Top = 10
+          Width = 58
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            52.916666666666660000
+            26.458333333333330000
+            153.458333333333300000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'No Faktur'
+          Color = clSilver
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+        object QRLabel4: TQRLabel
+          Left = 110
+          Top = 10
+          Width = 87
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            291.041666666666700000
+            26.458333333333330000
+            230.187500000000000000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Tanggal Faktur'
+          Color = clSilver
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+        object QRLabel5: TQRLabel
+          Left = 230
+          Top = 10
+          Width = 62
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            608.541666666666800000
+            26.458333333333330000
+            164.041666666666700000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Kd Barang'
+          Color = clSilver
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+        object QRLabel6: TQRLabel
+          Left = 320
+          Top = 10
+          Width = 80
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            846.666666666666600000
+            26.458333333333330000
+            211.666666666666700000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Nama Barang'
+          Color = clSilver
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+        object QRLabel7: TQRLabel
+          Left = 450
+          Top = 10
+          Width = 42
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            1190.625000000000000000
+            26.458333333333330000
+            111.125000000000000000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Jumlah'
+          Color = clSilver
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+        object QRLabel8: TQRLabel
+          Left = 530
+          Top = 10
+          Width = 67
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            1402.291666666667000000
+            26.458333333333330000
+            177.270833333333300000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Caption = 'Total Harga'
+          Color = clSilver
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+      end
+      object DetailBand1: TQRBand
+        Left = 48
+        Top = 227
+        Width = 720
+        Height = 40
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        AlignToBottom = False
+        Color = clSilver
+        ForceNewColumn = False
+        ForceNewPage = False
+        Size.Values = (
+          105.833333333333300000
+          1905.000000000000000000)
+        BandType = rbDetail
+        object QRDBText2: TQRDBText
+          Left = 120
+          Top = 10
+          Width = 54
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            317.500000000000000000
+            26.458333333333330000
+            142.875000000000000000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Color = clSilver
+          DataSet = AdsLapPenjualan
+          DataField = 'tgl_faktur'
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+        object QRDBText3: TQRDBText
+          Left = 230
+          Top = 10
+          Width = 61
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            608.541666666666800000
+            26.458333333333330000
+            161.395833333333300000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Color = clSilver
+          DataSet = AdsLapPenjualan
+          DataField = 'kd_barang'
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+        object QRDBText4: TQRDBText
+          Left = 320
+          Top = 10
+          Width = 79
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            846.666666666666600000
+            26.458333333333330000
+            209.020833333333300000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Color = clSilver
+          DataSet = AdsLapPenjualan
+          DataField = 'nama_barang'
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+        object QRDBText5: TQRDBText
+          Left = 470
+          Top = 10
+          Width = 71
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            1243.541666666667000000
+            26.458333333333330000
+            187.854166666666700000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Color = clSilver
+          DataSet = AdsLapPenjualan
+          DataField = 'jumlah_item'
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+        object QRDBText6: TQRDBText
+          Left = 550
+          Top = 10
+          Width = 65
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            1455.208333333333000000
+            26.458333333333330000
+            171.979166666666700000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Color = clSilver
+          DataSet = AdsLapPenjualan
+          DataField = 'total_harga'
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+        object QRDBText1: TQRDBText
+          Left = 20
+          Top = 10
+          Width = 54
+          Height = 20
+          Frame.Color = clBlack
+          Frame.DrawTop = False
+          Frame.DrawBottom = False
+          Frame.DrawLeft = False
+          Frame.DrawRight = False
+          Size.Values = (
+            52.916666666666660000
+            52.916666666666660000
+            26.458333333333330000
+            142.875000000000000000)
+          Alignment = taLeftJustify
+          AlignToBand = False
+          AutoSize = True
+          AutoStretch = False
+          Color = clSilver
+          DataSet = AdsLapPenjualan
+          DataField = 'no_faktur'
+          Transparent = False
+          WordWrap = True
+          FontSize = 10
+        end
+      end
+    end
+  end
+  object AdsLapPenjualan: TADODataSet
+    Active = True
+    Connection = FMenu.ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'select * from QLapJual'
+    Parameters = <>
+    Left = 24
+    Top = 9
+  end
+  object dsLapPenjualan: TDataSource
+    AutoEdit = False
+    DataSet = AdsLapPenjualan
+    Left = 56
+    Top = 9
+  end
+  object AdsPenjualan: TADODataSet
+    Active = True
+    Connection = FMenu.ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'select * from Penjualan'
+    Parameters = <>
+    Left = 88
+    Top = 8
+  end
+  object dsPenjualan: TDataSource
+    AutoEdit = False
+    DataSet = AdsPenjualan
+    Left = 120
+    Top = 8
+  end
+end
